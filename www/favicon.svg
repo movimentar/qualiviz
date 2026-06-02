@@ -1,10 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="48" fill="#24466F" />
-  
-  <circle cx="35" cy="40" r="15" fill="#5E9F45" />
-  <circle cx="65" cy="60" r="18" fill="#7FCDBB" />
-  <circle cx="70" cy="30" r="10" fill="#F7FAF6" />
-  
-  <line x1="35" y1="40" x2="65" y2="60" stroke="#F7FAF6" stroke-width="4" stroke-linecap="round"/>
-  <line x1="35" y1="40" x2="70" y2="30" stroke="#F7FAF6" stroke-width="3" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
+  <rect width="1000" height="1000" rx="150" fill="#0B2A59" />
+
+  <g stroke="#617C9D" stroke-width="22" stroke-linecap="round">
+    <line x1="300" y1="280" x2="650" y2="150" />
+    <line x1="650" y1="150" x2="780" y2="500" />
+    <line x1="300" y1="280" x2="780" y2="500" />
+    <line x1="300" y1="280" x2="120" y2="550" />
+    <line x1="120" y1="550" x2="450" y2="780" />
+    <line x1="300" y1="280" x2="450" y2="780" />
+    <line x1="780" y1="500" x2="450" y2="780" />
+    <line x1="780" y1="500" x2="780" y2="850" />
+    <line x1="450" y1="780" x2="780" y2="850" />
+  </g>
+
+  <g fill="#617C9D">
+    <circle cx="650" cy="150" r="35" />
+    <circle cx="120" cy="550" r="35" />
+    <circle cx="780" cy="850" r="35" />
+  </g>
+
+  <g>
+    <circle cx="300" cy="280" r="170" fill="#FFFFFF" />
+    <circle cx="300" cy="280" r="145" fill="#003882" />
+    <rect x="210" y="200" width="180" height="120" rx="60" fill="#FFFFFF" />
+    <polygon points="240,300 210,360 280,300" fill="#FFFFFF" />
+    <circle cx="250" cy="260" r="14" fill="#003882" />
+    <circle cx="300" cy="260" r="14" fill="#003882" />
+    <circle cx="350" cy="260" r="14" fill="#003882" />
+  </g>
+
+  <g>
+    <circle cx="780" cy="500" r="155" fill="#FFFFFF" />
+    <circle cx="780" cy="500" r="130" fill="#5E9F45" />
+    <path d="M 725 410 L 795 410 L 795 475 L 850 475 L 850 590 L 725 590 Z" fill="#FFFFFF" />
+    <polygon points="805,410 805,465 850,465" fill="#FFFFFF" />
+    <rect x="745" y="490" width="85" height="15" rx="5" fill="#5E9F45" />
+    <rect x="745" y="525" width="85" height="15" rx="5" fill="#5E9F45" />
+    <rect x="745" y="560" width="55" height="15" rx="5" fill="#5E9F45" />
+  </g>
+
+  <g>
+    <circle cx="450" cy="780" r="155" fill="#FFFFFF" />
+    <circle cx="450" cy="780" r="130" fill="#008B99" />
+    <rect x="390" y="770" width="28" height="60" rx="8" fill="#FFFFFF" />
+    <rect x="435" y="720" width="28" height="110" rx="8" fill="#FFFFFF" />
+    <rect x="480" y="650" width="28" height="180" rx="8" fill="#FFFFFF" />
+  </g>
 </svg>
