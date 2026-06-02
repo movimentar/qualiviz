@@ -96,9 +96,9 @@ Supported inputs include:
 
 ![QualiViz Text Network](README_files/qualiviz_text_network.png)
 
-## Top words contribution to emotions
+## Text sentiments
 
-![QualiViz Emotion Top Words](README_files/qualiviz_emotion_nrc_topwords.png)
+![QualiViz Text Sentiments](README_files/qualiviz_emotion_text_sentiments_bing.png)
 
 ## Sentiment Distribution
 
