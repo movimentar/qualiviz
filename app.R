@@ -481,7 +481,70 @@ render_markdown_html <- function(x) {
 
 ui <- shiny::tagList(
   shiny::tags$head(
-    shiny::tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
+    
+    # --------------------------------------------------
+    # Custom CSS
+    # --------------------------------------------------
+    shiny::tags$link(
+      rel = "stylesheet",
+      type = "text/css",
+      href = "custom.css"
+    ),
+    
+    # --------------------------------------------------
+    # Favicons
+    # --------------------------------------------------
+    shiny::tags$link(
+      rel = "icon",
+      type = "image/svg+xml",
+      href = "favicon.svg"
+    ),
+    
+    shiny::tags$link(
+      rel = "icon",
+      type = "image/png",
+      sizes = "16x16",
+      href = "favicon-16.png"
+    ),
+    
+    shiny::tags$link(
+      rel = "icon",
+      type = "image/png",
+      sizes = "32x32",
+      href = "favicon-32.png"
+    ),
+    
+    shiny::tags$link(
+      rel = "icon",
+      type = "image/png",
+      sizes = "48x48",
+      href = "favicon-48.png"
+    ),
+    
+    shiny::tags$link(
+      rel = "apple-touch-icon",
+      sizes = "180x180",
+      href = "apple-touch-icon.png"
+    ),
+    
+    shiny::tags$link(
+      rel = "icon",
+      type = "image/png",
+      sizes = "192x192",
+      href = "favicon-192.png"
+    ),
+    
+    # --------------------------------------------------
+    # Theme color
+    # --------------------------------------------------
+    shiny::tags$meta(
+      name = "theme-color",
+      content = "#24466F"
+    ),
+    
+    # --------------------------------------------------
+    # Google Analytics
+    # --------------------------------------------------
     ga_script(GA_MEASUREMENT_ID)
   ),
 
