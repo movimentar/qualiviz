@@ -1,40 +1,136 @@
-# History files
+# =========================================================
+# QualiViz - Git Ignore
+# =========================================================
+
+# ---------------------------------------------------------
+# R Session Files
+# ---------------------------------------------------------
 .Rhistory
 .Rapp.history
-# Session Data files
 .RData
 .RDataTmp
-# User-specific files
 .Ruserdata
-# Example code in package build process
-*-Ex.R
-# Output files from R CMD build
-/*.tar.gz
-# Output files from R CMD check
-/*.Rcheck/
-# RStudio files
+
+# ---------------------------------------------------------
+# Environment Variables / Secrets
+# ---------------------------------------------------------
+.Renviron
+.Renviron.*
+!.Renviron.example
+
+# ---------------------------------------------------------
+# RStudio
+# ---------------------------------------------------------
 .Rproj.user/
-# produced vignettes
-vignettes/*.html
-vignettes/*.pdf
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+*.Rproj
+
+# If you want to keep qualiviz.Rproj in the repository,
+# comment the line above and uncomment below:
+# !qualiviz.Rproj
+
+# ---------------------------------------------------------
+# Shiny Deployment
+# ---------------------------------------------------------
+rsconnect/
+
+# ---------------------------------------------------------
+# Generated Lexicons
+# ---------------------------------------------------------
+data/*.rds
+!data/.gitkeep
+
+# ---------------------------------------------------------
+# Build Outputs
+# ---------------------------------------------------------
+*.tar.gz
+*.Rcheck/
+
+# ---------------------------------------------------------
+# Package Build Examples
+# ---------------------------------------------------------
+*-Ex.R
+
+# ---------------------------------------------------------
+# OAuth / Authentication
+# ---------------------------------------------------------
 .httr-oauth
-# knitr and R markdown default cache directories
+.httr-oauth-cache
+
+# ---------------------------------------------------------
+# R Markdown / Quarto
+# ---------------------------------------------------------
 *_cache/
-/cache/
-# Temporary files created by R markdown
+cache/
+_files/
+*_files/
+
 *.utf8.md
 *.knit.md
-# R Environment Variables
-.Renviron
-# pkgdown site
-docs/
-# translation temp files
-po/*~
-# RStudio Connect folder
-rsconnect/
-qualiviz.Rproj
-README.html
 
-# Ignore Lexica
-data/*.rds
+# ---------------------------------------------------------
+# Generated Documentation
+# ---------------------------------------------------------
+README.html
+docs/
+
+# ---------------------------------------------------------
+# Vignettes
+# ---------------------------------------------------------
+vignettes/*.html
+vignettes/*.pdf
+
+# ---------------------------------------------------------
+# Temporary Files
+# ---------------------------------------------------------
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# ---------------------------------------------------------
+# Operating System Files
+# ---------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------------------------------------------------------
+# Logs
+# ---------------------------------------------------------
+*.log
+
+# ---------------------------------------------------------
+# Python (future-proof)
+# ---------------------------------------------------------
+__pycache__/
+*.pyc
+
+# ---------------------------------------------------------
+# IDEs
+# ---------------------------------------------------------
+.vscode/
+.idea/
+
+# ---------------------------------------------------------
+# Testing / Coverage
+# ---------------------------------------------------------
+coverage/
+covr/
+
+# ---------------------------------------------------------
+# Local Data Exports
+# ---------------------------------------------------------
+exports/
+output/
+results/
+
+# ---------------------------------------------------------
+# Screenshots generated during development
+# ---------------------------------------------------------
+screenshots/
+
+# ---------------------------------------------------------
+# Keep placeholders
+# ---------------------------------------------------------
+!data/.gitkeep
