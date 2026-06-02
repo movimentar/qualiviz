@@ -1,0 +1,279 @@
+/* =====================================================
+   QUALIVIZ - movimentar GmbH
+   custom.css
+===================================================== */
+
+/* ---------- Global ---------- */
+
+body {
+  background-color: #F7FAF6;
+  color: #1F2D3A;
+}
+
+/* ---------- Sidebar ---------- */
+
+.bslib-sidebar-layout > .sidebar {
+  background: linear-gradient(
+    180deg,
+    #EFF7EC 0%,
+    #E7F0F6 100%
+  );
+  border-right: 1px solid #D6E6D1;
+}
+
+.sidebar-brand {
+  text-align: center;
+  padding: 6px 8px 16px 8px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #D6E6D1;
+}
+
+.sidebar-brand h1 {
+  color: #24466F;
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.sidebar-brand p {
+  color: #3E6394;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.sidebar-brand img {
+  width: 82%;
+  max-width: 300px;
+  display: block;
+  margin: 10px auto 18px auto;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  border: 1px solid #D8EAD2;
+  box-shadow: 0 2px 8px rgba(31, 45, 58, 0.06);
+}
+
+.card-header {
+  font-weight: 800;
+  color: #24466F;
+  background-color: #F3F8F1;
+  border-bottom: 1px solid #D8EAD2;
+}
+
+/* ---------- Accordion ---------- */
+
+.accordion {
+  margin-bottom: 14px;
+}
+
+.accordion-button {
+  font-weight: 700;
+  color: #24466F;
+  background-color: #F3F8F1;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #E7F0F6;
+  color: #24466F;
+}
+
+/* ---------- Splash ---------- */
+
+.splash-card {
+  min-height: 450px;
+  border: 2px dashed #D6E6D1;
+  background: linear-gradient(
+    180deg,
+    #FFFFFF 0%,
+    #F7FAF6 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-inner {
+  max-width: 900px;
+  text-align: center;
+  padding: 30px;
+}
+
+.splash-icon {
+  font-size: 3rem;
+  color: #5E9F45;
+  margin-bottom: 12px;
+}
+
+.splash-inner h2 {
+  color: #24466F;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.splash-inner p {
+  font-size: 1.05rem;
+  color: #31475C;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.splash-steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.splash-steps div {
+  background: #EFF7EC;
+  border: 1px solid #D6E6D1;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #24466F;
+  font-weight: 600;
+}
+
+/* ---------- Navigation Tabs ---------- */
+
+.nav-tabs .nav-link {
+  color: #5E9F45;
+  font-weight: 600;
+}
+
+.nav-tabs .nav-link.active {
+  color: #24466F;
+  font-weight: 800;
+  border-top: 3px solid #5E9F45;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-primary {
+  background-color: #3E6394;
+  border-color: #3E6394;
+}
+
+.btn-primary:hover {
+  background-color: #31527D;
+  border-color: #31527D;
+}
+
+.btn-success {
+  background-color: #5E9F45;
+  border-color: #5E9F45;
+}
+
+.btn-success:hover {
+  background-color: #4E883A;
+  border-color: #4E883A;
+}
+
+.download-row {
+  margin-bottom: 12px;
+}
+
+/* ---------- Links ---------- */
+
+a {
+  color: #3E6394;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #5E9F45;
+}
+
+/* ---------- Summary ---------- */
+
+.summary-box {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.summary-box h2 {
+  color: #24466F;
+  margin-top: 0.5rem;
+}
+
+.summary-box h3 {
+  color: #5E9F45;
+  margin-top: 1rem;
+}
+
+/* ---------- DT Tables ---------- */
+
+.dataTables_wrapper {
+  font-size: 0.95rem;
+}
+
+table.dataTable thead th {
+  color: #24466F;
+  font-weight: 700;
+}
+
+/* ---------- Plot Area ---------- */
+
+.shiny-plot-output {
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* ---------- Tooltips ---------- */
+
+.tooltip-inner {
+  max-width: 300px;
+  text-align: left;
+}
+
+/* ---------- Cookie Banner ---------- */
+
+#cookie-consent-banner {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 780px;
+  margin: auto;
+
+  background: #FFFFFF;
+
+  border: 1px solid #D8EAD2;
+  border-left: 6px solid #5E9F45;
+
+  border-radius: 12px;
+
+  padding: 18px 20px;
+
+  color: #1F2D3A;
+
+  box-shadow: 0 4px 18px rgba(31,45,58,0.18);
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+
+  .sidebar-brand h1 {
+    font-size: 2rem;
+  }
+
+  .sidebar-brand img {
+    max-width: 220px;
+  }
+
+  .splash-inner h2 {
+    font-size: 2rem;
+  }
+
+  .splash-steps {
+    flex-direction: column;
+  }
+}
