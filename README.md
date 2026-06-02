@@ -10,7 +10,7 @@ Transforming open-ended responses into actionable insights
 
 <p align="center">
 
-[![R](https://img.shields.io/badge/R-4.3+-276DC3?logo=r\&logoColor=white)](https://www.r-project.org/)
+[![R](https://img.shields.io/badge/R-4.3+-276DC3?logo=r&logoColor=white)](https://www.r-project.org/)
 [![Shiny](https://img.shields.io/badge/Shiny-App-blue)](https://shiny.posit.co/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Deployment](https://img.shields.io/badge/Deployment-shinyapps.io-success)](https://movimentar.shinyapps.io/qualiviz)
@@ -32,11 +32,11 @@ Run locally:
 ```r
 source("prepare_lexicons.R")
 shiny::runApp()
-```
+````
 
 Or try the public deployment:
 
-👉 https://movimentar.shinyapps.io/qualiviz
+👉 [https://movimentar.shinyapps.io/qualiviz](https://movimentar.shinyapps.io/qualiviz)
 
 ---
 
@@ -54,7 +54,7 @@ QualiViz helps transform qualitative responses into actionable insights through:
 
 Supported inputs include:
 
-* Excel files (.xlsx, .xls)
+* Excel files `.xlsx`, `.xls`
 * CSV files
 * TSV files
 * KoboToolbox exports
@@ -80,22 +80,11 @@ Supported inputs include:
 
 # Workflow
 
-```mermaid
-flowchart LR
-
-A[Upload Data] --> B[Select Text Column]
-
-B --> C[Text Preprocessing]
-
-C --> D[Word Cloud]
-C --> E[Text Network]
-C --> F[Sentiment Analysis]
-C --> G[AI Summary]
-```
+![QualiViz Interface](README_files/mermaid-diagram.png)
 
 ---
 
-# Screenshots
+# Screenshots and Example Outputs
 
 ## Main Interface
 
@@ -103,15 +92,27 @@ C --> G[AI Summary]
 
 ## Word Cloud
 
-![Word Cloud](README_files/wordcloud_example.png)
+![QualiViz Word Cloud](README_files/qualiviz_wordcloud.png)
 
 ## Text Network
 
-![Text Network](README_files/network_example.png)
+![QualiViz Text Network](README_files/qualiviz_text_network.png)
 
-## Sentiment Analysis
+## Text Plot
 
-![Sentiment Analysis](README_files/sentiment_example.png)
+![QualiViz Text Plot](README_files/qualiviz_textplot.png)
+
+## Sentiment Distribution
+
+![QualiViz Sentiment Distribution](README_files/qualiviz_sentiment_distribution.png)
+
+## Sentiment Words
+
+![QualiViz Sentiment Words](README_files/qualiviz_sentiment_words.png)
+
+## Sentiment Trajectory
+
+![QualiViz Sentiment Trajectory](README_files/qualiviz_sentiment_trajectory.png)
 
 ---
 
@@ -168,22 +169,29 @@ qualiviz/
 ├── README.md
 ├── LICENSE
 ├── .gitignore
+├── .Renviron.example
 │
 ├── data/
-│   ├── afinn_lexicon.rds
-│   ├── bing_lexicon.rds
-│   └── nrc_lexicon.rds
+│   └── .gitkeep
 │
 ├── www/
-│   └── custom.css
+│   ├── custom.css
+│   ├── favicon.svg
+│   ├── favicon-16.png
+│   ├── favicon-32.png
+│   ├── favicon-48.png
+│   ├── favicon-192.png
+│   ├── apple-touch-icon.png
+│   └── movimentar-logo.png
 │
-├── README_files/
-│   ├── qualiviz_screenshot.png
-│   ├── wordcloud_example.png
-│   ├── network_example.png
-│   └── sentiment_example.png
-│
-└── .github/
+└── README_files/
+    ├── qualiviz_screenshot.png
+    ├── qualiviz_wordcloud.png
+    ├── qualiviz_text_network.png
+    ├── qualiviz_textplot.png
+    ├── qualiviz_sentiment_distribution.png
+    ├── qualiviz_sentiment_words.png
+    └── qualiviz_sentiment_trajectory.png
 ```
 
 ---
@@ -261,7 +269,7 @@ Run once before using or deploying the application:
 source("prepare_lexicons.R")
 ```
 
-This creates:
+This creates local sentiment lexicon files:
 
 ```text
 data/bing_lexicon.rds
@@ -283,11 +291,19 @@ bing_lexicon.rds
 nrc_lexicon.rds
 ```
 
+The generated `.rds` lexicon files are intentionally not tracked in Git.
+
 ---
 
 # Environment Variables
 
-Create a local `.Renviron` file:
+Copy `.Renviron.example` to `.Renviron`:
+
+```bash
+cp .Renviron.example .Renviron
+```
+
+Then edit `.Renviron`:
 
 ```text
 GEMINI_API_KEY=your_gemini_api_key
@@ -295,17 +311,21 @@ GA_MEASUREMENT_ID=G-XXXXXXXXXX
 GEMINI_MODEL=gemini-2.5-flash
 ```
 
-Do not commit this file.
+Do not commit `.Renviron`.
 
 Recommended `.gitignore` entries:
 
 ```gitignore
 .Renviron
+.Renviron.*
+!.Renviron.example
 .Rhistory
 .RData
 .Ruserdata
-.Rproj.user
+.Rproj.user/
 rsconnect/
+data/*.rds
+!data/.gitkeep
 ```
 
 ---
@@ -340,24 +360,33 @@ rsconnect::deployApp(
 )
 ```
 
-Set environment variables in shinyapps.io:
+If deploying with local generated lexicon files and `.Renviron`, use an explicit deployment manifest:
 
-```text
-Applications
-→ qualiviz
-→ Settings
-→ Vars
+```r
+rsconnect::deployApp(
+  appName = "qualiviz",
+  appFiles = c(
+    "app.R",
+    ".Renviron",
+    "prepare_lexicons.R",
+    "LICENSE",
+    "www/custom.css",
+    "www/favicon.svg",
+    "www/favicon-16.png",
+    "www/favicon-32.png",
+    "www/favicon-48.png",
+    "www/favicon-192.png",
+    "www/apple-touch-icon.png",
+    "www/movimentar-logo.png",
+    "data/bing_lexicon.rds",
+    "data/nrc_lexicon.rds",
+    "data/afinn_lexicon.rds"
+  ),
+  forceUpdate = TRUE
+)
 ```
 
-Add:
-
-```text
-GEMINI_API_KEY
-GA_MEASUREMENT_ID
-GEMINI_MODEL
-```
-
-Do not upload `.Renviron`.
+Do not commit `.Renviron` or generated lexicon files to GitHub.
 
 ---
 
@@ -532,7 +561,7 @@ QualiViz is developed and maintained by movimentar GmbH.
 
 If you would like to collaborate, request features, support deployment, or discuss custom solutions, please contact:
 
-https://movimentar.eu
+[https://movimentar.eu](https://movimentar.eu)
 
 ---
 
@@ -555,4 +584,4 @@ Built with ❤️ by movimentar GmbH
 
 Supporting responsible data use, learning, reflection, and improved human understanding through open-source technology.
 
-https://movimentar.eu
+[https://movimentar.eu](https://movimentar.eu)
