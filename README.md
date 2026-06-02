@@ -42,8 +42,6 @@ Or try the public deployment:
 
 # Overview
 
-![QualiViz Screenshot](README_files/qualiviz_screenshot.png)
-
 QualiViz helps transform qualitative responses into actionable insights through:
 
 * Word frequency analysis
@@ -80,7 +78,7 @@ Supported inputs include:
 
 # Workflow
 
-![QualiViz Interface](README_files/mermaid-diagram.png)
+![QualiViz Workflow](README_files/mermaid-diagram.png)
 
 ---
 
@@ -98,9 +96,9 @@ Supported inputs include:
 
 ![QualiViz Text Network](README_files/qualiviz_text_network.png)
 
-## Text Plot
+## Top words contribution to emotions
 
-![QualiViz Text Plot](README_files/qualiviz_textplot.png)
+![QualiViz Emotion Top Words](README_files/qualiviz_emotion_nrc_topwords.png)
 
 ## Sentiment Distribution
 
