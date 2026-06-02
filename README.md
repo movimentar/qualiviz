@@ -574,7 +574,6 @@ See the LICENSE file for details.
 # Contributors
 
 * movimentar GmbH
-* Bruno Monteiro
 
 ---
 
