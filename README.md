@@ -36,7 +36,7 @@ shiny::runApp()
 
 Or try the public deployment:
 
-👉 [https://movimentar.shinyapps.io/qualiviz](https://movimentar.shinyapps.io/qualiviz)
+- [https://movimentar.shinyapps.io/qualiviz](https://movimentar.shinyapps.io/qualiviz)
 
 ---
 

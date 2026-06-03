@@ -1024,7 +1024,7 @@ server <- function(input, output, session) {
         ggplot2::geom_col(width = 0.7) +
         ggplot2::coord_flip() +
         ggplot2::scale_fill_manual(values = sentiment_palette, guide = "none") +
-        ggplot2::labs(title = "Sentiment / emotion distribution", x = NULL, y = "Word count") +
+        ggplot2::labs(title = "Sentiment/emotion distribution", x = NULL, y = "Word count") +
         base_plot_theme()
     }
   })
@@ -1047,15 +1047,35 @@ server <- function(input, output, session) {
       sentiment_data() |>
         dplyr::count(word, sentiment, sort = TRUE) |>
         dplyr::group_by(sentiment) |>
-        dplyr::slice_max(n, n = 10) |>
+        dplyr::slice_max(n, n = 6, with_ties = FALSE) |>
         dplyr::ungroup() |>
-        ggplot2::ggplot(ggplot2::aes(x = reorder(word, n), y = n, fill = sentiment)) +
-        ggplot2::geom_col() +
-        ggplot2::coord_flip() +
-        ggplot2::facet_wrap(~ sentiment, scales = "free_y") +
+        dplyr::mutate(
+          word = stringr::str_trunc(word, width = 16),
+          word = tidytext::reorder_within(word, n, sentiment)
+        ) |>
+        ggplot2::ggplot(ggplot2::aes(x = word, y = n, fill = sentiment)) +
+        ggplot2::geom_col(width = 0.68) +
+        ggplot2::coord_flip(clip = "off") +
+        tidytext::scale_x_reordered() +
+        ggplot2::facet_wrap(~ sentiment, scales = "free_y", ncol = 3) +
         ggplot2::scale_fill_manual(values = sentiment_palette, guide = "none") +
-        ggplot2::labs(title = "Top words contributing to sentiment", x = NULL, y = "Word count") +
-        base_plot_theme()
+        ggplot2::scale_y_continuous(expand = ggplot2::expansion(mult = c(0, 0.08))) +
+        ggplot2::labs(
+          title = "Top words contributing to sentiment",
+          x = NULL,
+          y = "Word count"
+        ) +
+        base_plot_theme() +
+        ggplot2::theme(
+          plot.title = ggplot2::element_text(size = 22, face = "bold"),
+          axis.title.x = ggplot2::element_text(size = 16),
+          axis.text.x = ggplot2::element_text(size = 12),
+          axis.text.y = ggplot2::element_text(size = 12),
+          strip.text = ggplot2::element_text(size = 15, face = "bold"),
+          panel.spacing.x = grid::unit(1.5, "lines"),
+          panel.spacing.y = grid::unit(1.2, "lines"),
+          plot.margin = ggplot2::margin(10, 20, 10, 20)
+        )
     }
   })
 
